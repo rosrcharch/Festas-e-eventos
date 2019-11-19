@@ -10,8 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
+
 import com.example.festaseeventos.R;
 
 public class InformacoesFragment extends Fragment {
@@ -19,8 +23,6 @@ public class InformacoesFragment extends Fragment {
     private EditText editLocalFesta;
     private EditText editData;
     private EditText editNumConvidados;
-    private ImageView imagemClick;
-    private FrameLayout frameLayout;
 
     private String[] cardViewNome = new String[] {"Festa de aniversario", "Bodas", "Datas comemorativas",
             "Casamento", "Corporativa", "Debutante", "Escolar", "Outros"};
@@ -39,11 +41,10 @@ public class InformacoesFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_informacoes, container, false);
 
+
         editLocalFesta = view.findViewById(R.id.edit_local_festa);
         editData = view.findViewById(R.id.edit_data);
         editNumConvidados = view.findViewById(R.id.edit_num_convidados);
-        imagemClick = view.findViewById(R.id.imagemClick);
-        frameLayout = view.findViewById(R.id.frameLayout);
 
         //Configurando o adapter e a listagem dos itens
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_dropdown_item, cardViewNome);
@@ -70,14 +71,6 @@ public class InformacoesFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "toque", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        imagemClick.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                frameLayout.setVisibility(View.VISIBLE);
-
             }
         });
 
